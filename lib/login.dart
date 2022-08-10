@@ -6,6 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/forgot_password.dart';
 
+import 'package:phc/forgot_userid.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -55,7 +57,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
         },
         body: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).scaffoldBackgroundColor,
           ),
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -113,7 +115,6 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
                                 hintStyle: GoogleFonts.roboto(
                                   textStyle: Theme.of(context).textTheme.bodyText2,
                                   letterSpacing: 1.8,
-                                  color: Colors.black.withOpacity(0.7),
                                   fontWeight: FontWeight.w300
                                 ),
                                 prefixIcon: Icon(Icons.person_outlined),
@@ -146,7 +147,6 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
                                 hintStyle: GoogleFonts.roboto(
                                   textStyle: Theme.of(context).textTheme.bodyText2,
                                   letterSpacing: 1.8,
-                                  color: Colors.black.withOpacity(0.7),
                                   fontWeight: FontWeight.w300
                                 ),
                                 prefixIcon: Icon(Icons.lock_outlined),
@@ -183,7 +183,20 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
                                     primary: Theme.of(context).colorScheme.primary,
                                     padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
                                   ),
-                                  onPressed: (){}, 
+                                  onPressed: (){
+                                    showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Dialog(
+                                        elevation: 2,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(15)
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: ForgotUserID()
+                                      );
+                                    });
+                                  }, 
                                   child: Text('Forget UserID ?', 
                                     style: GoogleFonts.roboto(
                                       textStyle: Theme.of(context).textTheme.button,
@@ -199,28 +212,18 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
                                     padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
                                   ),
                                   onPressed: (){
-                                   
                                     showDialog(
                                     context: context,
                                     builder: (BuildContext context) {
                                       return Dialog(
                                         elevation: 2,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(15)
+                                        ),
                                         alignment: Alignment.center,
                                         child: ForgotPassword()
                                       );
                                     });
-                                    // showModalBottomSheet(
-                                    //     elevation: 2,
-                                    //     shape: RoundedRectangleBorder(
-                                    //       borderRadius: BorderRadius.only(
-                                    //         topLeft: Radius.circular(20),
-                                    //         topRight: Radius.circular(20),
-                                    //       ),
-                                    //     ),
-                                    //     context: context, builder: (BuildContext context) { 
-                                    //       return ForgotPassword();
-                                    //     }, 
-                                    //   );
                                   }, 
                                   child: Text('Forgot Password ?', 
                                     style: GoogleFonts.roboto(
@@ -273,7 +276,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
                             Text('Not Registered Yet ?',
                               style: GoogleFonts.roboto(
                                 textStyle: Theme.of(context).textTheme.headline6,
-                                color: Colors.black.withOpacity(0.6),
+                                // color: Colors.black.withOpacity(0.6),
                                 fontSize: 14,
                                 letterSpacing: 1.2,
                                 fontWeight: FontWeight.w500

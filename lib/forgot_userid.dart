@@ -6,13 +6,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/constants.dart';
 
 
-class ForgotPassword extends StatefulWidget {
+class ForgotUserID extends StatefulWidget {
   @override
-  _ForgotPasswordState createState() => _ForgotPasswordState();
+  _ForgotUserIDState createState() => _ForgotUserIDState();
 }
 
 
-class _ForgotPasswordState extends State<ForgotPassword> with TickerProviderStateMixin{
+class _ForgotUserIDState extends State<ForgotUserID> with TickerProviderStateMixin{
 
 @override
 Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ Widget build(BuildContext context) {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text('Forgot Password',
+                    child: Text('Forgot User ID',
                       style: GoogleFonts.roboto(
                         textStyle: Theme.of(context).textTheme.subtitle1,
                         fontWeight: FontWeight.w600,
@@ -76,7 +76,7 @@ Widget build(BuildContext context) {
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
-                    hintText: 'Enter UserId',
+                    hintText: 'Mobile Number',
                     hintStyle: GoogleFonts.roboto(
                       textStyle: Theme.of(context).textTheme.bodyText2,
                       letterSpacing: 1.8,

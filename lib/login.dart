@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/forgot_password.dart';
 
 import 'package:phc/forgot_userid.dart';
+import 'package:phc/login_success.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -21,22 +22,6 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: Container(
-      //   child: Column(
-      //     children: [
-      //       Text('LOGIN'),
-      //       ElevatedButton(
-      //         onPressed: (){}, 
-      //         style: ElevatedButton.styleFrom(
-      //           textStyle: TextStyle(fontSize: 16),
-      //           elevation: 1,
-      //           primary: Theme.of(context).colorScheme.secondary
-      //         ),
-      //         child: Text('Login', style: Theme.of(context).textTheme.button,)
-      //       )
-      //     ],
-      //   )
-      // ),
       body: NestedScrollView(
         physics: NeverScrollableScrollPhysics(),
         headerSliverBuilder: (context, value) {
@@ -245,7 +230,13 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
                               children: [
                                 Expanded(
                                   child: ElevatedButton(
-                                    onPressed: (){}, 
+                                    onPressed: (){
+                                      Navigator.pushReplacement<void, void>(context, 
+                                        MaterialPageRoute(
+                                          builder: (BuildContext context) => LoginSuccess()
+                                        )
+                                      );
+                                    }, 
                                     style: ElevatedButton.styleFrom(
                                       primary: Theme.of(context).colorScheme.secondary, 
                                       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),

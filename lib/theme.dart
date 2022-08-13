@@ -37,7 +37,8 @@ ThemeData lightthemeData(BuildContext context) {
     ),
     // iconTheme: IconThemeData(color: FstIconLightColor),
     // primaryIconTheme: IconThemeData(color: FstPrimaryIconLightColor),
-    // cardColor: FstCardLightColor,
+    cardColor: PhcCardColorLight,
+    dividerColor: PhcDividerColorLight,
     
     shadowColor: PhcShadowColorLight,
     textTheme: TextTheme(
@@ -82,8 +83,11 @@ ThemeData darkThemeData(BuildContext context) {
       
     ),
     shadowColor: PhcShadowColorDark,
+    cardColor: PhcCardColorDark,
+    dividerColor: PhcDividerColorDark,
     
 
+    
     textTheme: TextTheme(
       headline1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 48, fontWeight: FontWeight.w300, letterSpacing: 1.5)),
       headline2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 32, fontWeight: FontWeight.w300, letterSpacing: 1.2)),

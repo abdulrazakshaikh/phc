@@ -32,6 +32,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
               collapseMode: CollapseMode.parallax,
                 background:  Container(
                 // margin: EdgeInsets.only(bottom: 15),
+                color: Theme.of(context).colorScheme.surface,
                 height: 36,
                 alignment: Alignment.topLeft,
                 child: Image.asset('images/logolight.png', fit: BoxFit.contain),

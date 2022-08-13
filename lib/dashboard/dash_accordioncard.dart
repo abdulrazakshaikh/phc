@@ -210,7 +210,7 @@ List accordionList = [
                     Container(
                       decoration: BoxDecoration(
                         border: Border(
-                          top: BorderSide(width: 1, color: Colors.grey.shade300.withOpacity(0.2))
+                          top: BorderSide(width: 1, color: Theme.of(context).dividerColor)
                         )
                       ),
                       child: Column(
@@ -367,13 +367,6 @@ List accordionList = [
                                                 ]
                                               )
                                             ),
-                                            // Text('13 /' + '₹ 6,753',
-                                            // style: GoogleFonts.robotoCondensed(
-                                            //   textStyle: Theme.of(context).textTheme.subtitle2,
-                                            //   fontWeight: FontWeight.w600,
-                                            //   letterSpacing: 1.2,
-                                            // ),
-                                            // ),
                                           ],
                                         ),
                                       ),
@@ -431,7 +424,7 @@ List accordionList = [
                             padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               border: Border(
-                                top: BorderSide(width: 1, color: Colors.grey.shade300.withOpacity(0.2))
+                                top: BorderSide(width: 1, color: Theme.of(context).dividerColor)
                               )
                             ),
                             child: Row(

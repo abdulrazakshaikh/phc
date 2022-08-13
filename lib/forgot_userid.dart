@@ -132,7 +132,7 @@ Widget build(BuildContext context) {
 
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(width: 1, color: Colors.grey.withOpacity(0.5))
+                  top: BorderSide(width: 1, color: Theme.of(context).dividerColor)
                 )
               ),
               child: Row(

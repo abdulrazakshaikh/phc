@@ -19,7 +19,7 @@ Widget build(BuildContext context) {
   return Container(
     // padding: EdgeInsets.fromLTRB(15,15,15,15),
     constraints: BoxConstraints(
-      maxHeight: 270,
+      // maxHeight: 270,
     ),
     decoration: BoxDecoration(
       color: Theme.of(context).colorScheme.surface,
@@ -29,6 +29,7 @@ Widget build(BuildContext context) {
     // height: MediaQuery.of(context).size.height / 3,
     // height: 250,
     child: Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
           Container(
             decoration: BoxDecoration(

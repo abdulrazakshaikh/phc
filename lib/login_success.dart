@@ -4,10 +4,11 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:phc/dashboard.dart';
 import 'package:phc/forgot_password.dart';
 
 import 'package:phc/forgot_userid.dart';
+
+import 'dashboard/dashboard.dart';
 
 class LoginSuccess extends StatefulWidget {
   @override

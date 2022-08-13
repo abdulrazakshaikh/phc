@@ -39,7 +39,7 @@ ThemeData lightthemeData(BuildContext context) {
     // primaryIconTheme: IconThemeData(color: FstPrimaryIconLightColor),
     // cardColor: FstCardLightColor,
     
-
+    shadowColor: PhcShadowColorLight,
     textTheme: TextTheme(
       headline1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 48, fontWeight: FontWeight.w300, letterSpacing: 1.5)),
       headline2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 32, fontWeight: FontWeight.w300, letterSpacing: 1.2)),
@@ -50,7 +50,7 @@ ThemeData lightthemeData(BuildContext context) {
       subtitle1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 16)),
       subtitle2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 14)),
       bodyText1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 16)),
-      bodyText2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 14)),
+      bodyText2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 12)),
       caption: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 12)),
       button: GoogleFonts.roboto(textStyle: TextStyle(color: PhcButtonTextColorLight, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w600, letterSpacing: 1.5)),
     ),
@@ -81,6 +81,7 @@ ThemeData darkThemeData(BuildContext context) {
       onError: Colors.red, 
       
     ),
+    shadowColor: PhcShadowColorDark,
     
 
     textTheme: TextTheme(
@@ -93,7 +94,7 @@ ThemeData darkThemeData(BuildContext context) {
       subtitle1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w400)),
       subtitle2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 14, fontWeight: FontWeight.w400)),
       bodyText1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w400)),
-      bodyText2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 14, fontWeight: FontWeight.w400)),
+      bodyText2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 12, fontWeight: FontWeight.w400)),
       caption: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 12, fontWeight: FontWeight.w400)),
       button: GoogleFonts.roboto(textStyle: TextStyle(color: PhcButtonTextColorDark, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w600, letterSpacing: 1.5)),
     ),
@@ -103,12 +104,12 @@ ThemeData darkThemeData(BuildContext context) {
 AppBarTheme appBarThemeLight = AppBarTheme(
   color: Color(0xFFFFFFFF), 
   elevation: 1,
-  titleTextStyle: GoogleFonts.roboto(textStyle: TextStyle(color: PhcAppbartextColorLight, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w600)),
+  titleTextStyle: GoogleFonts.roboto(textStyle: TextStyle(color: PhcAppbartextColorLight, fontFamily: 'Roboto', fontSize: 16, letterSpacing: 1.5, fontWeight: FontWeight.w600)),
 );
 AppBarTheme appBarThemeDark = AppBarTheme(
   color: Color(0xFF212A47), 
   elevation: 1,
-  titleTextStyle: GoogleFonts.roboto(textStyle: TextStyle(color: PhcAppbartextColorDark, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w600)),
+  titleTextStyle: GoogleFonts.roboto(textStyle: TextStyle(color: PhcAppbartextColorDark, fontFamily: 'Roboto', fontSize: 16, letterSpacing: 1.5, fontWeight: FontWeight.w600)),
 );
 
 

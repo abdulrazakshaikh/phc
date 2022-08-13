@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/login.dart';
 import 'package:phc/theme.dart';
 
+import 'dashboard/dashboard.dart';
 import 'splashscreen.dart';
 
 void main() {
@@ -52,8 +53,9 @@ class MyApp extends StatelessWidget {
       darkTheme: darkThemeData(context),
       themeMode: isLightTheme ? ThemeMode.light : ThemeMode.dark,
       home: 
-      // SplashScreen()
-      Login()
+      SplashScreen()
+      // Login()
+      // Dashboard()
     );
   }
 }

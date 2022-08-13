@@ -49,4 +49,14 @@ const PhcBackgroundColorDark = Color(0xFF1A2038);
 const PhcCardColor = Color(0xFFFFFFFF);
 
 // Shadow Colors
-const PhcShadowColor = Color(0xFF606060);
+const PhcShadowColorLight = Color.fromRGBO(0, 0, 0, 0.5);
+const PhcShadowColorDark = Color.fromRGBO(151, 151, 151, 0.5);
+
+
+
+const PhcGradientLightColor1 = Color(0xFF3415F7);
+const PhcGradientLightColor2 = Color(0xFF163C66);
+
+
+const PhcGradientDarkColor1 = Color(0xFF333F65);
+const PhcGradientDarkColor2 = Color(0xFF212A47);

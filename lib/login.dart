@@ -42,7 +42,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin{
         },
         body: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: Theme.of(context).colorScheme.surface,
           ),
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),

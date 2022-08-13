@@ -31,13 +31,19 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
         headerSliverBuilder: (context, value) {
           return [
             SliverAppBar(
+            // excludeHeaderSemantics: true,
             // automaticallyImplyLeading : false,
             // backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: isLightTheme ? PhcGradientLightColor2 :  PhcGradientDarkColor2,
             // backgroundColor: Colors.transparent,
-            
             // floating: true,
             // pinned: false,
-            // snap: true,
+            // snap: false,
+            // stretch: true,
+            // onStretchTrigger: () {
+            //   // Function callback for stretch
+            //   return Future<void>.value();
+            // },
             expandedHeight: 150,
             titleSpacing: 10,
             title: Text('Dashboard',
@@ -69,9 +75,15 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
                   onPressed: () {},
                 ),
               ),
-            ],
+            ],           
             flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.parallax,
+              // expandedTitleScale : 2.5,
+              // stretchModes: const <StretchMode>[
+              //   StretchMode.zoomBackground,
+              //   StretchMode.blurBackground,
+              //   StretchMode.fadeTitle,
+              // ],
+              collapseMode: CollapseMode.pin,
               background: Container(
                 decoration: BoxDecoration(
                   gradient : LinearGradient(
@@ -79,7 +91,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
                     end: Alignment.bottomCenter,
                     stops: [0.1, 1.0],
                     colors: 
-                    // [Colors.amber, Colors.teal],
+                   
                     isLightTheme ? [PhcGradientLightColor1, PhcGradientLightColor2] : [PhcGradientDarkColor1, PhcGradientDarkColor2]
                   ),
                 ),

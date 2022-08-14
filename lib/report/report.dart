@@ -24,13 +24,21 @@ class Report extends StatefulWidget {
 
 class _ReportState extends State<Report> with TickerProviderStateMixin{
 
+  late TabController _tabController;
 
+  @override
+  void initState() {   
+    super.initState();
+    _tabController = TabController(
+      initialIndex: 0,
+      length: 6,
+      vsync: this,
+    );
+  }
   
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-    length: 6,
-    child: Scaffold(
+    return Scaffold(
       bottomNavigationBar: BottomNavigation(),
       drawer: MenuDrawer(),
       appBar: AppBar(
@@ -64,7 +72,6 @@ class _ReportState extends State<Report> with TickerProviderStateMixin{
         ],
         bottom: TabBar(
           indicatorColor: Theme.of(context).primaryColor,
-          
           unselectedLabelColor: Theme.of(context).colorScheme.onSecondary.withOpacity(0.6),
           unselectedLabelStyle: GoogleFonts.roboto(
             textStyle: Theme.of(context).textTheme.subtitle2,
@@ -76,7 +83,13 @@ class _ReportState extends State<Report> with TickerProviderStateMixin{
             letterSpacing: 1.2,
             fontWeight: FontWeight.bold
           ),
+          controller: _tabController,
           isScrollable: true,
+          onTap: (int value) {
+            setState(() {
+              _tabController.index = value;
+            });
+          },
           tabs: [
             Tab(text: 'Trading'),
             Tab(text: 'Mutual Funds'),
@@ -90,6 +103,7 @@ class _ReportState extends State<Report> with TickerProviderStateMixin{
       ),
       body: TabBarView(
         physics: NeverScrollableScrollPhysics(), 
+        controller: _tabController,
         children: [
         
           ReportTrading(),
@@ -101,7 +115,6 @@ class _ReportState extends State<Report> with TickerProviderStateMixin{
           
         ],
       ),
-    ),
     );
   }
 }

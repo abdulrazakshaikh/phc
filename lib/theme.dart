@@ -24,6 +24,7 @@ ThemeData lightthemeData(BuildContext context) {
       brightness: Brightness.light,
       
       primary: PhcPrimaryColorLight,
+      
       secondary: PhcSecondaryColorLight,
       onSecondary: PhcOnSecondaryColorLight,
 

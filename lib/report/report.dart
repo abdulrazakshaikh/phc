@@ -7,6 +7,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/constants.dart';
 import 'package:phc/dashboard/dash_explore.dart';
+import 'package:phc/report/report_advisory.dart';
+import 'package:phc/report/report_mtf.dart';
+import 'package:phc/report/report_mutualfunds.dart';
+import 'package:phc/report/report_nbfc.dart';
+import 'package:phc/report/report_pms.dart';
+import 'package:phc/report/report_trading.dart';
 import 'package:phc/widgets/bottomnavigation.dart';
 import 'package:phc/widgets/menudrawer.dart';
 
@@ -83,14 +89,16 @@ class _ReportState extends State<Report> with TickerProviderStateMixin{
 
       ),
       body: TabBarView(
+        physics: NeverScrollableScrollPhysics(), 
         children: [
-          Center(child: Text('Trading')),
-          Center(child: Text('Mutual Funds')),
-          Center(child: Text('Advisory')),
-          Center(child: Text('PMS')),
-          Center(child: Text('NBFC')),
-          Center(child: Text('MTF')),
         
+          ReportTrading(),
+          ReportMutualFunds(),
+          ReportAdvisory(),
+          ReportPms(),
+          ReportNbfc(),
+          ReportMtf(),
+          
         ],
       ),
     ),

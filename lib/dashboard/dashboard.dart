@@ -25,6 +25,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: isLightTheme ? PhcGradientLightColor2 :  PhcGradientDarkColor2,
       bottomNavigationBar: BottomNavigation(),
       drawer: MenuDrawer(),
       body: NestedScrollView(
@@ -44,7 +45,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
             //   // Function callback for stretch
             //   return Future<void>.value();
             // },
-            expandedHeight: 150,
+            iconTheme: IconThemeData(color: Colors.white),
+            expandedHeight: 170,
             titleSpacing: 10,
             title: Text('Dashboard',
             style: GoogleFonts.roboto(
@@ -95,7 +97,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
                     isLightTheme ? [PhcGradientLightColor1, PhcGradientLightColor2] : [PhcGradientDarkColor1, PhcGradientDarkColor2]
                   ),
                 ),
-                padding: EdgeInsets.only(top: 54),
+                padding: EdgeInsets.only(top: 64),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

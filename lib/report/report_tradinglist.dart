@@ -105,7 +105,13 @@ List tradingList = [
             shrinkWrap: true,
             itemCount: tradingList == null ? 0 : tradingList.length,
             separatorBuilder: (BuildContext context, int index) {
-              return Divider();
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(width: 1, color: Theme.of(context).dividerColor),
+                  )
+                ),
+              );
             },
             itemBuilder: (BuildContext context, int index) {
               Map item = tradingList[index];

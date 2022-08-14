@@ -86,7 +86,6 @@ ThemeData darkThemeData(BuildContext context) {
     cardColor: PhcCardColorDark,
     dividerColor: PhcDividerColorDark,
     
-
     
     textTheme: TextTheme(
       headline1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 48, fontWeight: FontWeight.w300, letterSpacing: 1.5)),
@@ -106,12 +105,14 @@ ThemeData darkThemeData(BuildContext context) {
 }
 
 AppBarTheme appBarThemeLight = AppBarTheme(
-  color: Color(0xFFFFFFFF), 
+  backgroundColor: Color(0xFFFFFFFF),
+  iconTheme: IconThemeData(color: PhcAppbartextColorLight),
   elevation: 1,
   titleTextStyle: GoogleFonts.roboto(textStyle: TextStyle(color: PhcAppbartextColorLight, fontFamily: 'Roboto', fontSize: 16, letterSpacing: 1.5, fontWeight: FontWeight.w600)),
 );
 AppBarTheme appBarThemeDark = AppBarTheme(
-  color: Color(0xFF212A47), 
+  backgroundColor: Color(0xFF212A47), 
+  iconTheme: IconThemeData(color: PhcAppbartextColorDark),
   elevation: 1,
   titleTextStyle: GoogleFonts.roboto(textStyle: TextStyle(color: PhcAppbartextColorDark, fontFamily: 'Roboto', fontSize: 16, letterSpacing: 1.5, fontWeight: FontWeight.w600)),
 );

@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/constants.dart';
 import 'package:phc/login.dart';
+import 'package:phc/portfolio/portfolio.dart';
+import 'package:phc/report/report.dart';
 
 class MenuDrawer extends StatefulWidget {
   @override
@@ -73,6 +75,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.surface,
+      elevation: 1,
         child: Column(
           children: [
 
@@ -182,7 +185,6 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     });
                   },
                 )
-                
                
               ),
             ),
@@ -220,7 +222,25 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     trailing: Icon(Icons.chevron_right,
                     color: Theme.of(context).colorScheme.onSecondary.withOpacity(0.6),
                     ),
-                    onTap: (){},
+                    onTap: (){
+                      item["id"] == '004' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Report()
+                        ),
+                      )
+                      :
+                      item["id"] == '002' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Portfolio()
+                        ),
+                      )
+                      :
+                      null
+                      ;
+
+                    },
                   );
                 },
               ),

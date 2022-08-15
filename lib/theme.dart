@@ -53,7 +53,7 @@ ThemeData lightthemeData(BuildContext context) {
       subtitle2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 14)),
       bodyText1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 16)),
       bodyText2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 12)),
-      caption: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 12)),
+      caption: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight.withOpacity(0.8), fontFamily: 'Roboto', fontSize: 12)),
       button: GoogleFonts.roboto(textStyle: TextStyle(color: PhcButtonTextColorLight, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w600, letterSpacing: 1.5)),
     ),
   );

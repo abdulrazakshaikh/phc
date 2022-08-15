@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:phc/report/filter_bottomsheet.dart';
 import 'package:phc/report/report_tradinglist.dart';
 
 class ReportTrading extends StatefulWidget {
@@ -52,12 +53,6 @@ class _ReportTradingState extends State<ReportTrading> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      // labelText: 'Switch Client',
-                      // labelStyle: GoogleFonts.roboto(
-                      //   textStyle: Theme.of(context).textTheme.bodyText2,
-                      //   letterSpacing: 1.8,
-                      //   fontWeight: FontWeight.w500
-                      // ),
                       
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
@@ -91,7 +86,20 @@ class _ReportTradingState extends State<ReportTrading> {
                 ),
                 child: IconButton(
                   icon: Icon(Icons.tune_outlined),
-                  onPressed: (){}, 
+                  onPressed: (){
+                    showModalBottomSheet(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                      ),
+                      context: context, builder: (BuildContext context) { 
+                        return FilterBottomSheet();
+                      }, 
+                    );
+                  }, 
                 ),
               ),
               SizedBox(width: 10),

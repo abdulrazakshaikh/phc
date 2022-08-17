@@ -24,7 +24,7 @@ ThemeData lightthemeData(BuildContext context) {
       brightness: Brightness.light,
       
       primary: PhcPrimaryColorLight,
-      
+      onPrimary: PhcOnPrimaryColorLight,
       secondary: PhcSecondaryColorLight,
       onSecondary: PhcOnSecondaryColorLight,
 
@@ -38,10 +38,12 @@ ThemeData lightthemeData(BuildContext context) {
     ),
     // iconTheme: IconThemeData(color: FstIconLightColor),
     // primaryIconTheme: IconThemeData(color: FstPrimaryIconLightColor),
+    shadowColor: PhcShadowColorLight,
     cardColor: PhcCardColorLight,
     dividerColor: PhcDividerColorLight,
+    secondaryHeaderColor: PhcHeaderColorLight,
     
-    shadowColor: PhcShadowColorLight,
+    
     textTheme: TextTheme(
       headline1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 48, fontWeight: FontWeight.w300, letterSpacing: 1.5)),
       headline2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorLight, fontFamily: 'Roboto', fontSize: 32, fontWeight: FontWeight.w300, letterSpacing: 1.2)),
@@ -71,6 +73,7 @@ ThemeData darkThemeData(BuildContext context) {
       brightness: Brightness.dark,
 
       primary: PhcPrimaryColorDark,
+      onPrimary: PhcOnPrimaryColorDark,
       secondary: PhcSecondaryColorDark,
       onSecondary: PhcOnSecondaryColorDark,
 
@@ -86,6 +89,7 @@ ThemeData darkThemeData(BuildContext context) {
     shadowColor: PhcShadowColorDark,
     cardColor: PhcCardColorDark,
     dividerColor: PhcDividerColorDark,
+    secondaryHeaderColor: PhcHeaderColorDark,
     
     
     textTheme: TextTheme(

@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/constants.dart';
+import 'package:phc/funds/funds.dart';
 import 'package:phc/login.dart';
 import 'package:phc/portfolio/portfolio.dart';
 import 'package:phc/report/report.dart';
+
+import 'package:phc/dashboard/dashboard.dart';
 
 class MenuDrawer extends StatefulWidget {
   @override
@@ -41,7 +44,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
     },
     {
       "id": "003",
-      "title" : "Fund",
+      "title" : "Funds",
       "icon" : Icons.payments_outlined,
     },
     {
@@ -188,6 +191,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                
               ),
             ),
+            
             Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               alignment: Alignment.topLeft,
@@ -223,10 +227,11 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     color: Theme.of(context).colorScheme.onSecondary.withOpacity(0.6),
                     ),
                     onTap: (){
-                      item["id"] == '004' ?
+                      
+                      item["id"] == '001' ?
                       Navigator.push(context, 
                         MaterialPageRoute(
-                          builder: (BuildContext context) => Report()
+                          builder: (BuildContext context) => Dashboard()
                         ),
                       )
                       :
@@ -234,6 +239,20 @@ class _MenuDrawerState extends State<MenuDrawer> {
                       Navigator.push(context, 
                         MaterialPageRoute(
                           builder: (BuildContext context) => Portfolio()
+                        ),
+                      )
+                      :
+                      item["id"] == '003' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Funds()
+                        ),
+                      )
+                      :
+                      item["id"] == '004' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Report()
                         ),
                       )
                       :

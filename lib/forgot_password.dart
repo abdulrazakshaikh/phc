@@ -13,7 +13,14 @@ class ForgotPassword extends StatefulWidget {
 
 
 class _ForgotPasswordState extends State<ForgotPassword> with TickerProviderStateMixin{
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FocusScope.of(context).requestFocus(FocusNode());
+    });
+  }
 @override
 Widget build(BuildContext context) {
   return Container(

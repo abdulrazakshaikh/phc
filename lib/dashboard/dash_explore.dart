@@ -13,32 +13,32 @@ List exploreList = [
   {
     "id": "001",
     "title" : "Advisory",
-    "icon" : "images/advisory.svg",
+    "icon" : "assets/images/advisory.svg",
   },
   {
     "id": "002",
     "title" : "PMS",
-    "icon" : "images/pms.svg",
+    "icon" : "assets/images/pms.svg",
   },
   {
     "id": "003",
     "title" : "NBFC",
-    "icon" : "images/nbfc.svg",
+    "icon" : "assets/images/nbfc.svg",
   },
   {
     "id": "004",
     "title" : "MTF",
-    "icon" : "images/mtf.svg",
+    "icon" : "assets/images/mtf.svg",
   },
   {
     "id": "005",
     "title" : "Taxation",
-    "icon" : "images/taxation.svg",
+    "icon" : "assets/images/taxation.svg",
   },
   {
     "id": "006",
     "title" : "Personal Loan",
-    "icon" : "images/peronalloan.svg",
+    "icon" : "assets/images/peronalloan.svg",
   },
 ];
 

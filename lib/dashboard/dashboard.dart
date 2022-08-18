@@ -61,7 +61,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
                 margin: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                 child: IconButton(
                   icon: SvgPicture.asset(
-                    'images/addfund.svg',
+                    'assets/images/addfund.svg',
                     height: 24,
                     width: 24,
                     color: Colors.white,

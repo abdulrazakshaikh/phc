@@ -11,7 +11,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  bool isLightTheme = true;
+ static bool isLightTheme = true;
 
   // This widget is the root of your application.
   @override

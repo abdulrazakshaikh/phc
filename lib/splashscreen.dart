@@ -73,7 +73,7 @@ late Animation<double> _animation;
                     child: Container(
                       height: 100,
                       child: Image.asset(
-                        'images/logolight.png',
+                        'assets/images/logolight.png',
                         fit: BoxFit.contain,
                       ),
                     ),

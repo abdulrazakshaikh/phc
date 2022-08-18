@@ -33,66 +33,68 @@ class _LoginSuccessState extends State<LoginSuccess> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     
-      body: NestedScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        headerSliverBuilder: (context, value) {
-         return [
-          SliverAppBar(
-            expandedHeight: 36,
-            flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.parallax,
-                background:  Container(
-                // margin: EdgeInsets.only(bottom: 15),
-                height: 36,
-                alignment: Alignment.topLeft,
-                child: Image.asset('images/logolight.png', fit: BoxFit.contain),
-              ),
-            )
-          ),
-         ];
-        },
-        body: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
-          ),
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                height: 300, width: 300,
-                child: Image.asset('images/success.png', fit: BoxFit.contain),
-              ),
+    return SafeArea(
+      child: Scaffold(
 
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                child: Column(
-                  children: [
-                    Text('Congratulations',
-                      style: GoogleFonts.roboto(
-                        textStyle: Theme.of(context).textTheme.headline2,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text('you have logged in to your account successfully', textAlign: TextAlign.center,
-                      style: GoogleFonts.roboto(
-                        textStyle: Theme.of(context).textTheme.bodyText1,
-                        letterSpacing: 1.5
-                      ),
-
-                    ),
-                  ],
+        body: NestedScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          headerSliverBuilder: (context, value) {
+           return [
+            SliverAppBar(
+              expandedHeight: 36,
+              flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.parallax,
+                  background:  Container(
+                  // margin: EdgeInsets.only(bottom: 15),
+                  height: 36,
+                  alignment: Alignment.topLeft,
+                  child: Image.asset('assets/images/logolight.png', fit: BoxFit.contain),
                 ),
-              ),
+              )
+            ),
+           ];
+          },
+          body: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+            ),
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  height: 300, width: 300,
+                  child: Image.asset('assets/images/success.png', fit: BoxFit.contain),
+                ),
+
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    children: [
+                      Text('Congratulations',
+                        style: GoogleFonts.roboto(
+                          textStyle: Theme.of(context).textTheme.headline2,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Text('you have logged in to your account successfully', textAlign: TextAlign.center,
+                        style: GoogleFonts.roboto(
+                          textStyle: Theme.of(context).textTheme.bodyText1,
+                          letterSpacing: 1.5
+                        ),
+
+                      ),
+                    ],
+                  ),
+                ),
 
 
-            ],
+              ],
+            ),
           ),
-        ),
 
+        ),
       ),
     );
   }

@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
 // Colors
-// const PhcPrimaryColor = Color(0xFF0A396D);
-// const PhcSecondaryColor = Color(0xFFFF7101);
 
 const PhcPrimaryColorLight = Color(0xFF0A396D);
 const PhcPrimaryColorDark = Color(0xFF0776F0);
-
-const PhcOnPrimaryColorLight = Color(0xFF86b0df);
-const PhcOnPrimaryColorDark = Color(0xFF83b9f5);
 
 
 const PhcSecondaryColorLight = Color(0xFFFF7101);

@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 const PhcPrimaryColorLight = Color(0xFF0A396D);
 const PhcPrimaryColorDark = Color(0xFF0776F0);
 
+const PhcOnPrimaryColorLight = Color(0xFF86b0df);
+const PhcOnPrimaryColorDark = Color(0xFF83b9f5);
+
+
 const PhcSecondaryColorLight = Color(0xFFFF7101);
 const PhcSecondaryColorDark = Color(0xFFFF7101);
 
@@ -40,6 +44,9 @@ const PhcBackgroundColorLight = Color(0xFFF2F1F1);
 const PhcBackgroundColorDark = Color(0xFF1A2038);
 
 
+// Header Colors
+const PhcHeaderColorLight = Color(0xFF192C3B);
+const PhcHeaderColorDark = Color(0xFF3B2919);
 
 
 // const PhcappbartextColor = Color(0xFFfbfdff);

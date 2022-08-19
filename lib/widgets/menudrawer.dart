@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/constants.dart';
+import 'package:phc/dashboard/dashboard.dart';
+import 'package:phc/funds/funds.dart';
 import 'package:phc/login.dart';
 import 'package:phc/main.dart';
 import 'package:phc/portfolio/portfolio.dart';
@@ -13,7 +14,6 @@ class MenuDrawer extends StatefulWidget {
 }
 
 class _MenuDrawerState extends State<MenuDrawer> {
-
   bool isLightTheme = true;
 
   var _clientcode = [
@@ -34,11 +34,8 @@ class _MenuDrawerState extends State<MenuDrawer> {
       "id": "001",
       "title": "Dashboard",
       "icon": Icons.home_outlined,
-    }, {
-      "id": "111",
-      "title": MyApp.isLightTheme ? "Dark Mode" : "Light Mode",
-      "icon": Icons.home_outlined,
     },
+
     {
       "id": "002",
       "title": "Portfolio",
@@ -46,7 +43,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
     },
     {
       "id": "003",
-      "title": "Fund",
+      "title": "Funds",
       "icon": Icons.payments_outlined,
     },
     {
@@ -70,6 +67,11 @@ class _MenuDrawerState extends State<MenuDrawer> {
       "icon": Icons.settings_outlined,
     },
     {
+      "id": "111",
+      "title": MyApp.isLightTheme ? "Dark Mode" : "Light Mode",
+      "icon": Icons.home_outlined,
+    },
+    {
       "id": "008",
       "title": "Refer & Earn",
       "icon": Icons.share_outlined,
@@ -79,28 +81,22 @@ class _MenuDrawerState extends State<MenuDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme
-          .of(context)
-          .colorScheme
-          .surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       elevation: 1,
       child: Column(
         children: [
-
           Container(
-            padding: EdgeInsets.only(top: 50,left: 15,right: 15,bottom: 15),
+            padding: EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 15),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   stops: [0.1, 1.0],
                   colors:
-                  // [Colors.amber, Colors.teal],
-                  isLightTheme ? [
-                    PhcGradientLightColor1,
-                    PhcGradientLightColor2
-                  ] : [PhcGradientDarkColor1, PhcGradientDarkColor2]
-              ),
+                      // [Colors.amber, Colors.teal],
+                      isLightTheme
+                          ? [PhcGradientLightColor1, PhcGradientLightColor2]
+                          : [PhcGradientDarkColor1, PhcGradientDarkColor2]),
             ),
             child: Row(
               children: [
@@ -108,41 +104,32 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Augustus Harrell',
+                      Text(
+                        'Augustus Harrell',
                         style: GoogleFonts.roboto(
-                            textStyle: Theme
-                                .of(context)
-                                .appBarTheme
-                                .titleTextStyle,
-                            color: Colors.white
-                        ),
+                            textStyle:
+                                Theme.of(context).appBarTheme.titleTextStyle,
+                            color: Colors.white),
                       ),
                       SizedBox(height: 5),
                       OutlinedButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
                           shape: StadiumBorder(),
-                          primary: Theme
-                              .of(context)
-                              .colorScheme
-                              .onSecondary,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 5),
+                          primary: Theme.of(context).colorScheme.onSecondary,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           alignment: Alignment.center,
                           side: BorderSide(width: 1, color: Colors.white),
                         ),
-                        child: Text('View Profile',
+                        child: Text(
+                          'View Profile',
                           style: GoogleFonts.roboto(
-                              textStyle: Theme
-                                  .of(context)
-                                  .textTheme
-                                  .button,
+                              textStyle: Theme.of(context).textTheme.button,
                               color: Colors.white,
-                              fontSize: 11
-                          ),
+                              fontSize: 11),
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -150,28 +137,23 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.close, color: Colors.white,)
-                ),
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    )),
               ],
             ),
-
           ),
-
           Container(
             // height: 64,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Theme
-                  .of(context)
-                  .colorScheme
-                  .background,
+              color: Theme.of(context).colorScheme.background,
               border: Border(
-                top: BorderSide(width: 1, color: Theme
-                    .of(context)
-                    .dividerColor),
-                bottom: BorderSide(width: 1, color: Theme
-                    .of(context)
-                    .dividerColor),
+                top:
+                    BorderSide(width: 1, color: Theme.of(context).dividerColor),
+                bottom:
+                    BorderSide(width: 1, color: Theme.of(context).dividerColor),
               ),
             ),
 
@@ -179,10 +161,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 padding: EdgeInsets.all(15),
                 child: DropdownButtonFormField(
                   style: GoogleFonts.roboto(
-                    textStyle: Theme
-                        .of(context)
-                        .textTheme
-                        .subtitle1,
+                    textStyle: Theme.of(context).textTheme.subtitle1,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1.2,
                   ),
@@ -191,22 +170,16 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     floatingLabelBehavior: FloatingLabelBehavior.auto,
                     labelText: 'Switch Client',
                     labelStyle: GoogleFonts.roboto(
-                        textStyle: Theme
-                            .of(context)
-                            .textTheme
-                            .bodyText2,
+                        textStyle: Theme.of(context).textTheme.bodyText2,
                         letterSpacing: 1.8,
-                        fontWeight: FontWeight.w500
-                    ),
-
+                        fontWeight: FontWeight.w500),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme
-                          .of(context)
-                          .colorScheme
-                          .primary, width: 1),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).colorScheme.primary,
+                          width: 1),
                     ),
                   ),
                   items: _clientcode.map((String value) {
@@ -221,24 +194,22 @@ class _MenuDrawerState extends State<MenuDrawer> {
                       selectedValue = newValue!;
                     });
                   },
-                )
-
-            ),
+                )),
           ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-            alignment: Alignment.topLeft,
-            child: Text('Navigation'.toUpperCase(),
-              style: GoogleFonts.roboto(
-                textStyle: Theme
-                    .of(context)
-                    .textTheme
-                    .subtitle2,
-                fontWeight: FontWeight.w300,
-                letterSpacing: 2.5,
-              ),
-            ),
-          ),
+          true
+              ? Container()
+              : Container(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Navigation'.toUpperCase(),
+                    style: GoogleFonts.roboto(
+                      textStyle: Theme.of(context).textTheme.subtitle2,
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: 2.5,
+                    ),
+                  ),
+                ),
           Expanded(
             child: ListView.builder(
               primary: false,
@@ -249,47 +220,59 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 Map item = menuList[index];
                 return ListTile(
                   horizontalTitleGap: 0,
-                  title: Text('${item["title"]}',
+                  title: Text(
+                    '${item["title"]}',
                     style: GoogleFonts.roboto(
-                      textStyle: Theme
-                          .of(context)
-                          .textTheme
-                          .subtitle1,
+                      textStyle: Theme.of(context).textTheme.subtitle1,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.2,
                     ),
                   ),
-                  leading: Icon(item["icon"],
-                    color: Theme
-                        .of(context)
+                  leading: Icon(
+                    item["icon"],
+                    color: Theme.of(context)
                         .colorScheme
                         .onSecondary
                         .withOpacity(0.6),
                   ),
-                  trailing: Icon(Icons.chevron_right,
-                    color: Theme
-                        .of(context)
+                  trailing: Icon(
+                    Icons.chevron_right,
+                    color: Theme.of(context)
                         .colorScheme
                         .onSecondary
                         .withOpacity(0.6),
                   ),
                   onTap: () {
-                    item["id"] == '004' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Report()
-                      ),
-                    )
-                        :
-                    item["id"] == '002' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Portfolio()
-                      ),
-                    )
-                        :
-                    item['id'] == "111" ? callThemeChange() : null
-                    ;
+                    item["id"] == '001'
+                        ? Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => Dashboard()),
+                          )
+                        : item["id"] == '002'
+                            ? Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        Portfolio()),
+                              )
+                            : item["id"] == '003'
+                                ? Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            Funds()),
+                                  )
+                                : item["id"] == '004'
+                                    ? Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                Report()),
+                                      )
+                                    : item['id'] == "111"
+                                        ? callThemeChange()
+                                        : null;
                   },
                 );
               },
@@ -298,39 +281,29 @@ class _MenuDrawerState extends State<MenuDrawer> {
           Container(
             decoration: BoxDecoration(
                 border: Border(
-                    top: BorderSide(width: 1, color: Theme
-                        .of(context)
-                        .dividerColor)
-                )
-            ),
+                    top: BorderSide(
+                        width: 1, color: Theme.of(context).dividerColor))),
             child: ListTile(
-              title: Text('Logout',
+              title: Text(
+                'Logout',
                 style: GoogleFonts.roboto(
-                  textStyle: Theme
-                      .of(context)
-                      .textTheme
-                      .subtitle1,
+                  textStyle: Theme.of(context).textTheme.subtitle1,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,
                 ),
               ),
-              trailing: Icon(Icons.logout_outlined,
-                color: Theme
-                    .of(context)
-                    .colorScheme
-                    .onSecondary,
+              trailing: Icon(
+                Icons.logout_outlined,
+                color: Theme.of(context).colorScheme.onSecondary,
               ),
               onTap: () {
-                Navigator.pushReplacement<void, void>(context,
+                Navigator.pushReplacement<void, void>(
+                    context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => Login()
-                    )
-                );
+                        builder: (BuildContext context) => Login()));
               },
             ),
           ),
-
-
         ],
       ),
     );
@@ -339,7 +312,8 @@ class _MenuDrawerState extends State<MenuDrawer> {
   void callThemeChange() {
     MyApp.isLightTheme = !MyApp.isLightTheme;
     Navigator.push(
-      context, MaterialPageRoute(builder: (BuildContext context) => MyApp()),);
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => MyApp()),
+    );
   }
-
 }

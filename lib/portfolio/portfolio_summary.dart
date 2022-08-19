@@ -184,6 +184,9 @@ List portfolioList = [
                 elevation: 5,
                 shadowColor: Theme.of(context).shadowColor.withOpacity(0.5),        
                 color: Theme.of(context).colorScheme.surface,   
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1, color: Theme.of(context).dividerColor),
+                ),
                 child: Column(
                   children: [
                     Container(

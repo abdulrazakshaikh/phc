@@ -5,9 +5,11 @@ import 'package:phc/constants.dart';
 import 'package:phc/funds/funds.dart';
 import 'package:phc/login.dart';
 import 'package:phc/portfolio/portfolio.dart';
+import 'package:phc/profile/profile.dart';
 import 'package:phc/report/report.dart';
 
 import 'package:phc/dashboard/dashboard.dart';
+import 'package:phc/research.dart';
 
 class MenuDrawer extends StatefulWidget {
   @override
@@ -108,7 +110,13 @@ class _MenuDrawerState extends State<MenuDrawer> {
                         ),
                         SizedBox(height: 5),
                         OutlinedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.pushReplacement(context, 
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => Profile()
+                              ),
+                            );
+                          },
                           style: OutlinedButton.styleFrom(
                             shape: StadiumBorder(),
                             primary: Theme.of(context).colorScheme.onSecondary,                       
@@ -253,6 +261,20 @@ class _MenuDrawerState extends State<MenuDrawer> {
                       Navigator.push(context, 
                         MaterialPageRoute(
                           builder: (BuildContext context) => Report()
+                        ),
+                      )
+                      :
+                      item["id"] == '005' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Research()
+                        ),
+                      )
+                      :
+                      item["id"] == '007' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => Profile()
                         ),
                       )
                       :

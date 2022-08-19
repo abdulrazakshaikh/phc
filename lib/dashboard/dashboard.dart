@@ -24,7 +24,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(      
       backgroundColor: isLightTheme ? PhcGradientLightColor2 :  PhcGradientDarkColor2,
       bottomNavigationBar: BottomNavigation(),
       drawer: MenuDrawer(),

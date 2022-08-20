@@ -8,6 +8,8 @@ import 'package:phc/portfolio/portfolio_futureoptions.dart';
 import 'package:phc/portfolio/portfolio_mutualfunds.dart';
 import 'package:phc/portfolio/portfolio_summary.dart';
 import 'package:phc/profile/profile_bank.dart';
+import 'package:phc/profile/profile_changepassword.dart';
+import 'package:phc/profile/profile_changetheme.dart';
 import 'package:phc/profile/profile_income.dart';
 import 'package:phc/profile/profile_nominee.dart';
 import 'package:phc/profile/profile_personal.dart';
@@ -265,7 +267,6 @@ List myaccountmenuList = [
                       itemCount: settingmenuList == null ? 0 : settingmenuList.length,
                       separatorBuilder: (BuildContext context, int index) {
                         return Container(
-                          
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(width: 1, color: Theme.of(context).dividerColor),
@@ -288,7 +289,40 @@ List myaccountmenuList = [
                           trailing: Icon(Icons.chevron_right,
                           color: Theme.of(context).colorScheme.onSecondary.withOpacity(0.6),
                           ),
-                          onTap: (){},
+                          onTap: (){
+
+                            item["id"] == '001' ?
+                            showModalBottomSheet(
+                              elevation: 2,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                              context: context, builder: (BuildContext context) { 
+                                return ProfileChangePassword();
+                              }, 
+                            )
+                            :
+                            item["id"] == '002' ?
+                            showModalBottomSheet(
+                              elevation: 2,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                              context: context, builder: (BuildContext context) { 
+                                return ProfileChangeTheme();
+                              }, 
+                            )
+                            :
+                            null;
+
+                            
+                          },
                         );
                       },
                     ),

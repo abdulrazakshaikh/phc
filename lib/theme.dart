@@ -23,7 +23,6 @@ ThemeData lightthemeData(BuildContext context) {
       brightness: Brightness.light,
       
       primary: PhcPrimaryColorLight,
-      onPrimary: PhcOnPrimaryColorLight,
       secondary: PhcSecondaryColorLight,
       onSecondary: PhcOnSecondaryColorLight,
 
@@ -72,9 +71,11 @@ ThemeData darkThemeData(BuildContext context) {
       brightness: Brightness.dark,
 
       primary: PhcPrimaryColorDark,
-      onPrimary: PhcOnPrimaryColorDark,
+      
       secondary: PhcSecondaryColorDark,
       onSecondary: PhcOnSecondaryColorDark,
+      
+      
 
       background: PhcBackgroundColorDark, 
       onBackground: PhcBackgroundColorDark, 
@@ -102,7 +103,7 @@ ThemeData darkThemeData(BuildContext context) {
       subtitle2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 14, fontWeight: FontWeight.w400)),
       bodyText1: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w400)),
       bodyText2: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 12, fontWeight: FontWeight.w400)),
-      caption: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark, fontFamily: 'Roboto', fontSize: 12, fontWeight: FontWeight.w400)),
+      caption: GoogleFonts.roboto(textStyle: TextStyle(color: PhcTextColorDark.withOpacity(0.8), fontFamily: 'Roboto', fontSize: 12, fontWeight: FontWeight.w400)),
       button: GoogleFonts.roboto(textStyle: TextStyle(color: PhcButtonTextColorDark, fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w600, letterSpacing: 1.5)),
     ),
   );

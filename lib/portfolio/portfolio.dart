@@ -1,23 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:phc/constants.dart';
-import 'package:phc/dashboard/dash_explore.dart';
 import 'package:phc/portfolio/portfolio_commodities.dart';
 import 'package:phc/portfolio/portfolio_equities.dart';
 import 'package:phc/portfolio/portfolio_futureoptions.dart';
 import 'package:phc/portfolio/portfolio_mutualfunds.dart';
 import 'package:phc/portfolio/portfolio_summary.dart';
-import 'package:phc/report/report_advisory.dart';
-import 'package:phc/report/report_mtf.dart';
-import 'package:phc/report/report_mutualfunds.dart';
-import 'package:phc/report/report_nbfc.dart';
-import 'package:phc/report/report_pms.dart';
-import 'package:phc/report/report_trading.dart';
 import 'package:phc/widgets/bottomnavigation.dart';
 import 'package:phc/widgets/menudrawer.dart';
 

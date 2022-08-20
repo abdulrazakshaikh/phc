@@ -11,6 +11,7 @@ import 'package:phc/widgets/bottomnavigation.dart';
 import 'package:phc/widgets/menudrawer.dart';
 
 import 'dash_accordioncard.dart';
+import 'package:phc/notification.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -74,7 +75,13 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
                 margin: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                 child: IconButton(
                   icon: Icon(Icons.notifications_outlined, color: Colors.white, size: 24),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, 
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => NotificationList()
+                      ),
+                    );
+                  },
                 ),
               ),
             ],           

@@ -10,6 +10,10 @@ import 'package:phc/report/report.dart';
 
 import 'package:phc/dashboard/dashboard.dart';
 import 'package:phc/research.dart';
+import 'package:phc/widgets/apierror.dart';
+import 'package:phc/widgets/confirmation.dart';
+import 'package:phc/widgets/nointernet.dart';
+
 
 class MenuDrawer extends StatefulWidget {
   @override
@@ -73,6 +77,16 @@ class _MenuDrawerState extends State<MenuDrawer> {
       "id": "008",
       "title" : "Refer & Earn",
       "icon" : Icons.share_outlined,
+    },
+    {
+      "id": "009",
+      "title" : "No Internet Connection",
+      "icon" : Icons.wifi_off_outlined,
+    },
+    {
+      "id": "010",
+      "title" : "API Error",
+      "icon" : Icons.warning_outlined,
     },
   ];
 
@@ -214,7 +228,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
             Expanded(
               child: ListView.builder(
                 primary: false,
-                physics: NeverScrollableScrollPhysics(),
+                physics: AlwaysScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: menuList == null ? 0 : menuList.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -278,6 +292,20 @@ class _MenuDrawerState extends State<MenuDrawer> {
                         ),
                       )
                       :
+                      item["id"] == '009' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => NoInternet()
+                        ),
+                      )
+                      :
+                      item["id"] == '010' ?
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => ApiError()
+                        ),
+                      )
+                      :
                       null
                       ;
 
@@ -304,11 +332,12 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 color: Theme.of(context).colorScheme.onSecondary,
                 ),
                 onTap: () {
-                  Navigator.pushReplacement<void, void>(context, 
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => Login()
-                    )
-                  );
+                  confirmationAlertDialog(context);
+                  // Navigator.pushReplacement<void, void>(context, 
+                  //   MaterialPageRoute(
+                  //     builder: (BuildContext context) => Login()
+                  //   )
+                  // );
                 },
               ),
             ),

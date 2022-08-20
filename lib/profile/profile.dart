@@ -7,6 +7,10 @@ import 'package:phc/portfolio/portfolio_equities.dart';
 import 'package:phc/portfolio/portfolio_futureoptions.dart';
 import 'package:phc/portfolio/portfolio_mutualfunds.dart';
 import 'package:phc/portfolio/portfolio_summary.dart';
+import 'package:phc/profile/profile_bank.dart';
+import 'package:phc/profile/profile_income.dart';
+import 'package:phc/profile/profile_nominee.dart';
+import 'package:phc/profile/profile_personal.dart';
 import 'package:phc/widgets/bottomnavigation.dart';
 import 'package:phc/widgets/menudrawer.dart';
 
@@ -78,21 +82,6 @@ List myaccountmenuList = [
         titleSpacing: 10,
         title: Text('Profile'),
         actions: <Widget>[
-          Container(
-            width: 42, height: 42,
-            alignment: Alignment.center,
-            margin: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
-            child: IconButton(
-              alignment: Alignment.center,
-              icon: SvgPicture.asset(
-                'images/addfund.svg',
-                height: 22,
-                width: 22,
-                color: Theme.of(context).appBarTheme.iconTheme!.color,
-              ),
-              onPressed: () {},
-            ),
-          ),
           Container(
             width: 42, height: 42,
             margin: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
@@ -202,7 +191,37 @@ List myaccountmenuList = [
                           trailing: Icon(Icons.chevron_right,
                           color: Theme.of(context).colorScheme.onSecondary.withOpacity(0.6),
                           ),
-                          onTap: (){},
+                          onTap: (){
+                             item["id"] == '001' ?
+                              Navigator.push(context, 
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => ProfilePersonal()
+                                ),
+                              )
+                              :
+                              item["id"] == '002' ?
+                              Navigator.push(context, 
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => ProfileNominee()
+                                ),
+                              )
+                              :
+                              item["id"] == '003' ?
+                              Navigator.push(context, 
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => ProfileBank()
+                                ),
+                              )
+                              :
+                              item["id"] == '004' ?
+                              Navigator.push(context, 
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => ProfileIncome()
+                                ),
+                              )
+                              :
+                              null;
+                          },
                         );
                       },
                     ),

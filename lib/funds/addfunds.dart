@@ -265,8 +265,8 @@ class _AddFundsState extends State<AddFunds> {
                       letterSpacing: 1.2,
                     ),
                     ),
-                    leading: Image.network(
-                      'https://play-lh.googleusercontent.com/C4D7Q0MAAkI5EGIIM34frMuREWlTde55XKb1N-lq9lW8LqALuE5NjONUIIMWHBCtxg',
+                    leading: Image.asset(
+                      'images/hdfc.png',
                       width: 32, height: 32,
                       fit: BoxFit.contain,
                     ),

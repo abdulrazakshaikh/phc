@@ -112,7 +112,7 @@ class _ReportTradingState extends State<ReportTrading> {
                   borderRadius: BorderRadius.circular(4)
                 ),
                 child: IconButton(                  
-                  icon: Icon(Icons.file_download_outlined),
+                  icon: Icon(Icons.shortcut_outlined),
                   onPressed: (){}, 
                 ),
               ),

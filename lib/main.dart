@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:phc/funds/funds.dart';
+import 'package:phc/funds/withdrawfunds.dart';
 import 'package:phc/login.dart';
+import 'package:phc/portfolio/portfolio.dart';
+import 'package:phc/profile/profile.dart';
+import 'package:phc/report/report.dart';
+import 'package:phc/research.dart';
 import 'package:phc/theme.dart';
 
 import 'dashboard/dashboard.dart';
@@ -11,7 +17,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  bool isLightTheme = true;
+  bool isLightTheme = false;
 
   // This widget is the root of your application.
   @override
@@ -53,9 +59,14 @@ class MyApp extends StatelessWidget {
       darkTheme: darkThemeData(context),
       themeMode: isLightTheme ? ThemeMode.light : ThemeMode.dark,
       home: 
-      SplashScreen()
+      // SplashScreen()
       // Login()
       // Dashboard()
+      // Report()
+      // Portfolio()
+      // Funds()
+      // WithdrawFunds()
+      Profile()
     );
   }
 }

@@ -121,7 +121,7 @@ List portfoliorateupdateList = [
             child: IconButton(
               alignment: Alignment.center,
               icon: SvgPicture.asset(
-                'images/addfund.svg',
+                'assets/images/addfund.svg',
                 height: 22,
                 width: 22,
                 color: Theme.of(context).appBarTheme.iconTheme!.color,

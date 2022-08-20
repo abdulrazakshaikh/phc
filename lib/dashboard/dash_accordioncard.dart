@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:phc/dashboard/dash_daygainers.dart';
+import 'package:phc/dashboard/dash_daylosers.dart';
 
 class DashAccordionCard extends StatefulWidget {
   @override
@@ -332,7 +334,13 @@ List accordionList = [
                                     Expanded(
                                       flex: 5,
                                       child: InkWell(
-                                        onTap: (){},
+                                        onTap: (){
+                                          Navigator.push(context, 
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) => DashDayGainers()
+                                            ),
+                                          );
+                                        },
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
@@ -374,7 +382,13 @@ List accordionList = [
                                     Expanded(
                                       flex: 5,
                                       child: InkWell(
-                                        onTap: (){},
+                                        onTap: (){
+                                          Navigator.push(context, 
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) => DashDayLosers()
+                                            ),
+                                          );
+                                        },
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.end,
                                           children: [

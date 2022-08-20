@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:phc/funds/funds.dart';
+import 'package:phc/funds/withdrawfunds.dart';
 import 'package:phc/login.dart';
+import 'package:phc/portfolio/portfolio.dart';
+import 'package:phc/profile/profile.dart';
+import 'package:phc/report/report.dart';
+import 'package:phc/research.dart';
 import 'package:phc/theme.dart';
 
 import 'dashboard/dashboard.dart';

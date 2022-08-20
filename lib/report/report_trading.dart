@@ -23,6 +23,7 @@ class _ReportTradingState extends State<ReportTrading> {
 
   var selectedValue = 'Ledger';
 
+String dropdownValue = 'One';
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +34,6 @@ class _ReportTradingState extends State<ReportTrading> {
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.background,
-            // border: Border(
-            //   top: BorderSide(width: 1, color: Theme.of(context).dividerColor),
-            //   bottom: BorderSide(width: 1, color: Theme.of(context).dividerColor),
-            // ),
           ),
           
           child: Row(
@@ -111,9 +108,17 @@ class _ReportTradingState extends State<ReportTrading> {
                   border: Border.all(width: 1, color: Colors.grey),
                   borderRadius: BorderRadius.circular(4)
                 ),
-                child: IconButton(                  
-                  icon: Icon(Icons.file_download_outlined),
-                  onPressed: (){}, 
+                child:  PopupMenuButton<String>(
+                  icon: Icon(Icons.shortcut_outlined),
+                  // onSelected: choiceAction,
+                  itemBuilder: (BuildContext context) {
+                    return Constants.choices.map((String choice) {
+                      return PopupMenuItem<String>(
+                        value: choice,
+                        child: Text(choice),
+                      );
+                    }).toList();
+                  },
                 ),
               ),
             ],
@@ -160,3 +165,20 @@ class _ReportTradingState extends State<ReportTrading> {
     );
   }
 }
+
+class Constants {
+  static const String FirstItem = 'PDF';
+  static const String SecondItem = 'Excel';
+  static const String ThirdItem = 'Email';
+  static const List<String> choices = <String>[FirstItem, SecondItem, ThirdItem,];
+}
+
+// void choiceAction(String choice) {
+//   if (choice == Constants.FirstItem) {
+//     print('I First Item');
+//   } else if (choice == Constants.SecondItem) {
+//     print('I Second Item');
+//   } else if (choice == Constants.ThirdItem) {
+//     print('I Third Item');
+//   }
+// }

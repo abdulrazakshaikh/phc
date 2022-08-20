@@ -6,6 +6,11 @@ const PhcPrimaryColorLight = Color(0xFF0A396D);
 const PhcPrimaryColorDark = Color(0xFF0776F0);
 
 
+const PhcOnPrimaryColorLight = Color(0xFF312D32);
+const PhcOnPrimaryColorDark = Color(0xFF848484);
+
+
+
 const PhcSecondaryColorLight = Color(0xFFFF7101);
 const PhcSecondaryColorDark = Color(0xFFFF7101);
 

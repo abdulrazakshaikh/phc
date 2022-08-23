@@ -1,68 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:phc/funds/funds.dart';
-import 'package:phc/funds/withdrawfunds.dart';
-import 'package:phc/login.dart';
-import 'package:phc/portfolio/portfolio.dart';
-import 'package:phc/profile/profile.dart';
-import 'package:phc/report/report.dart';
-import 'package:phc/research.dart';
+import 'package:flutter/services.dart';
 import 'package:phc/theme.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'dashboard/dashboard.dart';
 import 'splashscreen.dart';
 
 void main() {
-  runApp(MyApp());
+  Provider.debugCheckInvalidValueType = null;
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]).then((_) {
+    SharedPreferences.getInstance().then((prefs) {
+      var darkModeOn = prefs.getBool('darkMode') ?? false;
+      runApp(Provider(
+        create: (_) => ThemeNotifier(darkTheme: darkModeOn),
+        child: MyApp(),
+      ));
+      /*runApp(
+        ChangeNotifierProvider<ThemeNotifier>(
+          builder: (_) => ThemeNotifier(darkModeOn ? darkTheme : lightTheme),
+          child: MyApp(),
+        ),
+      );*/
+    });
+  });
 }
 
-class MyApp extends StatelessWidget {
- static bool isLightTheme = true;
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Phillip Capital',
-      debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   fontFamily: 'Roboto',
-      //   colorScheme: ColorScheme(
-      //     brightness: Brightness.dark, 
-      //     primary: PhcPrimaryColor, 
-      //     onPrimary: PhcPrimaryColor, 
-      //     secondary: PhcSecondaryColor, 
-      //     onSecondary: PhcSecondaryColor, 
-      //     error: Colors.red, 
-      //     onError: Colors.red, 
-      //     background: PhcScaffoldBackgroundColor, 
-      //     onBackground: PhcScaffoldBackgroundColor, 
-      //     surface: PhcScaffoldBackgroundColor, 
-      //     onSurface: PhcScaffoldBackgroundColor
-      //   ),
-      //   textTheme: TextTheme(
-      //     headline1: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 48, fontWeight: FontWeight.w300, letterSpacing: 1.5)),
-      //     headline2: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 32, fontWeight: FontWeight.w300, letterSpacing: 1.2)),
-      //     headline3: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 28, fontWeight: FontWeight.w400)),
-      //     headline4: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 24, fontWeight: FontWeight.w400)),
-      //     headline5: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 20, fontWeight: FontWeight.w400)),
-      //     headline6: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 18, fontWeight: FontWeight.w400)),
-      //     subtitle1: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w400)),
-      //     subtitle2: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 14, fontWeight: FontWeight.w400)),
-      //     bodyText1: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w400)),
-      //     bodyText2: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 14, fontWeight: FontWeight.w400)),
-      //     caption: GoogleFonts.roboto(textStyle: TextStyle( fontFamily: 'Roboto', fontSize: 12, fontWeight: FontWeight.w400)),
-      //     button: GoogleFonts.roboto(textStyle: TextStyle(fontFamily: 'Roboto', fontSize: 16, fontWeight: FontWeight.w600)),
-      //   ),
-      // ),
-      theme: lightthemeData(context),
-      darkTheme: darkThemeData(context),
-      themeMode: isLightTheme ? ThemeMode.light : ThemeMode.dark,
-      home: 
-      SplashScreen()
-      // Login()
-      // Dashboard()
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    print("themeNotifier ${themeNotifier.isDarkTheme()}");
+    return ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: Consumer<ThemeNotifier>(
+        builder: (context, ThemeNotifier themeNotifier, child) {
+          return MaterialApp(
+              title: 'Phillip Capital',
+              debugShowCheckedModeBanner: false,
+              theme: lightthemeData(),
+              darkTheme: darkThemeData(),
+              themeMode:
+                  themeNotifier.darkTheme ? ThemeMode.dark : ThemeMode.light,
+              home: SafeArea(top: false, child: SplashScreen()
+                  // Login()
+                  // Dashboard()
+                  // Report()
+                  // Portfolio()
+                  // Funds()
+                  // WithdrawFunds()
+                  // Profile()
+                  // NoInternet()
+                  // ApiError()
+                  ));
+        },
+      ),
     );
   }
 }
-

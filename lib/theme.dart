@@ -7,10 +7,21 @@ import 'package:google_fonts/google_fonts.dart';
 import 'constants.dart';
 
 
+class ThemeNotifier with ChangeNotifier {
+  bool darkTheme;
+
+  ThemeNotifier({this.darkTheme=true});
+
+  isDarkTheme() => darkTheme;
+
+  setIsDarkTheme(bool themeData) async {
+    darkTheme = themeData;
+    notifyListeners();
+  }
+}
 
 
-
-ThemeData lightthemeData(BuildContext context) {
+ThemeData lightthemeData() {
   
 
   return ThemeData.light().copyWith(
@@ -61,7 +72,7 @@ ThemeData lightthemeData(BuildContext context) {
 }
 
 // Dark Mode Theme
-ThemeData darkThemeData(BuildContext context) {
+ThemeData darkThemeData() {
   return ThemeData.dark().copyWith(
     brightness: Brightness.dark,
     appBarTheme: appBarThemeDark,

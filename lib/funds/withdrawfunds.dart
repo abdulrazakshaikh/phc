@@ -344,7 +344,7 @@ class _WithdrawFundsState extends State<WithdrawFunds> {
                     ),
                     ),
                     leading: Image.asset(
-                      'images/hdfc.png',
+                      'assets/images/hdfc.png',
                       width: 32, height: 32,
                       fit: BoxFit.contain,
                     ),

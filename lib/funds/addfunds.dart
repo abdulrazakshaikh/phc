@@ -266,7 +266,7 @@ class _AddFundsState extends State<AddFunds> {
                     ),
                     ),
                     leading: Image.asset(
-                      'images/hdfc.png',
+                      'assets/images/hdfc.png',
                       width: 32, height: 32,
                       fit: BoxFit.contain,
                     ),
@@ -366,7 +366,7 @@ class _AddFundsState extends State<AddFunds> {
                     leading: Container(
                       width: 42, height: 42, alignment: Alignment.center,
                       child: Image.asset(
-                        'images/upi.png',
+                        'assets/images/upi.png',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -393,7 +393,7 @@ class _AddFundsState extends State<AddFunds> {
                     leading: Container(
                       width: 42, height: 42, alignment: Alignment.center,
                       child: Image.asset(
-                        'images/netbanking.png',
+                        'assets/images/netbanking.png',
                         fit: BoxFit.contain,
                       ),
                     ),

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/constants.dart';
+import 'package:phc/dashboard/dashboard.dart';
 import 'package:phc/funds/funds.dart';
-import 'package:phc/login.dart';
-import 'package:phc/main.dart';
 import 'package:phc/portfolio/portfolio.dart';
 import 'package:phc/profile/profile.dart';
 import 'package:phc/report/report.dart';
-
-import 'package:phc/dashboard/dashboard.dart';
 import 'package:phc/research.dart';
+import 'package:phc/widgets/apierror.dart';
+import 'package:phc/widgets/confirmation.dart';
+import 'package:phc/widgets/nointernet.dart';
 
 class MenuDrawer extends StatefulWidget {
   @override
@@ -18,7 +17,6 @@ class MenuDrawer extends StatefulWidget {
 }
 
 class _MenuDrawerState extends State<MenuDrawer> {
-
   bool isLightTheme = true;
 
   var _clientcode = [
@@ -75,19 +73,25 @@ class _MenuDrawerState extends State<MenuDrawer> {
       "title": "Refer & Earn",
       "icon": Icons.share_outlined,
     },
+    {
+      "id": "009",
+      "title": "No Internet Connection",
+      "icon": Icons.wifi_off_outlined,
+    },
+    {
+      "id": "010",
+      "title": "API Error",
+      "icon": Icons.warning_outlined,
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme
-          .of(context)
-          .colorScheme
-          .surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       elevation: 1,
       child: Column(
         children: [
-
           Container(
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
@@ -96,12 +100,10 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   end: Alignment.bottomCenter,
                   stops: [0.1, 1.0],
                   colors:
-                  // [Colors.amber, Colors.teal],
-                  isLightTheme ? [
-                    PhcGradientLightColor1,
-                    PhcGradientLightColor2
-                  ] : [PhcGradientDarkColor1, PhcGradientDarkColor2]
-              ),
+                      // [Colors.amber, Colors.teal],
+                      isLightTheme
+                          ? [PhcGradientLightColor1, PhcGradientLightColor2]
+                          : [PhcGradientDarkColor1, PhcGradientDarkColor2]),
             ),
             child: Row(
               children: [
@@ -109,47 +111,38 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Augustus Harrell',
+                      Text(
+                        'Augustus Harrell',
                         style: GoogleFonts.roboto(
-                            textStyle: Theme
-                                .of(context)
-                                .appBarTheme
-                                .titleTextStyle,
-                            color: Colors.white
-                        ),
+                            textStyle:
+                                Theme.of(context).appBarTheme.titleTextStyle,
+                            color: Colors.white),
                       ),
                       SizedBox(height: 5),
                       OutlinedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context,
+                          Navigator.pushReplacement(
+                            context,
                             MaterialPageRoute(
-                                builder: (BuildContext context) => Profile()
-                            ),
+                                builder: (BuildContext context) => Profile()),
                           );
                         },
                         style: OutlinedButton.styleFrom(
                           shape: StadiumBorder(),
-                          primary: Theme
-                              .of(context)
-                              .colorScheme
-                              .onSecondary,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 5),
+                          primary: Theme.of(context).colorScheme.onSecondary,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           alignment: Alignment.center,
                           side: BorderSide(width: 1, color: Colors.white),
                         ),
-                        child: Text('View Profile',
+                        child: Text(
+                          'View Profile',
                           style: GoogleFonts.roboto(
-                              textStyle: Theme
-                                  .of(context)
-                                  .textTheme
-                                  .button,
+                              textStyle: Theme.of(context).textTheme.button,
                               color: Colors.white,
-                              fontSize: 11
-                          ),
+                              fontSize: 11),
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -157,28 +150,23 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.close, color: Colors.white,)
-                ),
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    )),
               ],
             ),
-
           ),
-
           Container(
             // height: 64,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Theme
-                  .of(context)
-                  .colorScheme
-                  .background,
+              color: Theme.of(context).colorScheme.background,
               border: Border(
-                top: BorderSide(width: 1, color: Theme
-                    .of(context)
-                    .dividerColor),
-                bottom: BorderSide(width: 1, color: Theme
-                    .of(context)
-                    .dividerColor),
+                top:
+                    BorderSide(width: 1, color: Theme.of(context).dividerColor),
+                bottom:
+                    BorderSide(width: 1, color: Theme.of(context).dividerColor),
               ),
             ),
 
@@ -186,10 +174,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 padding: EdgeInsets.all(15),
                 child: DropdownButtonFormField(
                   style: GoogleFonts.roboto(
-                    textStyle: Theme
-                        .of(context)
-                        .textTheme
-                        .subtitle1,
+                    textStyle: Theme.of(context).textTheme.subtitle1,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 1.2,
                   ),
@@ -198,22 +183,16 @@ class _MenuDrawerState extends State<MenuDrawer> {
                     floatingLabelBehavior: FloatingLabelBehavior.auto,
                     labelText: 'Switch Client',
                     labelStyle: GoogleFonts.roboto(
-                        textStyle: Theme
-                            .of(context)
-                            .textTheme
-                            .bodyText2,
+                        textStyle: Theme.of(context).textTheme.bodyText2,
                         letterSpacing: 1.8,
-                        fontWeight: FontWeight.w500
-                    ),
-
+                        fontWeight: FontWeight.w500),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme
-                          .of(context)
-                          .colorScheme
-                          .primary, width: 1),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).colorScheme.primary,
+                          width: 1),
                     ),
                   ),
                   items: _clientcode.map((String value) {
@@ -228,20 +207,15 @@ class _MenuDrawerState extends State<MenuDrawer> {
                       selectedValue = newValue!;
                     });
                   },
-                )
-
-            ),
+                )),
           ),
-
           Container(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             alignment: Alignment.topLeft,
-            child: Text('Navigation'.toUpperCase(),
+            child: Text(
+              'Navigation'.toUpperCase(),
               style: GoogleFonts.roboto(
-                textStyle: Theme
-                    .of(context)
-                    .textTheme
-                    .subtitle2,
+                textStyle: Theme.of(context).textTheme.subtitle2,
                 fontWeight: FontWeight.w300,
                 letterSpacing: 2.5,
               ),
@@ -250,82 +224,96 @@ class _MenuDrawerState extends State<MenuDrawer> {
           Expanded(
             child: ListView.builder(
               primary: false,
-              physics: NeverScrollableScrollPhysics(),
+              physics: AlwaysScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: menuList == null ? 0 : menuList.length,
               itemBuilder: (BuildContext context, int index) {
                 Map item = menuList[index];
                 return ListTile(
                   horizontalTitleGap: 0,
-                  title: Text('${item["title"]}',
+                  title: Text(
+                    '${item["title"]}',
                     style: GoogleFonts.roboto(
-                      textStyle: Theme
-                          .of(context)
-                          .textTheme
-                          .subtitle1,
+                      textStyle: Theme.of(context).textTheme.subtitle1,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.2,
                     ),
                   ),
-                  leading: Icon(item["icon"],
-                    color: Theme
-                        .of(context)
+                  leading: Icon(
+                    item["icon"],
+                    color: Theme.of(context)
                         .colorScheme
                         .onSecondary
                         .withOpacity(0.6),
                   ),
-                  trailing: Icon(Icons.chevron_right,
-                    color: Theme
-                        .of(context)
+                  trailing: Icon(
+                    Icons.chevron_right,
+                    color: Theme.of(context)
                         .colorScheme
                         .onSecondary
                         .withOpacity(0.6),
                   ),
                   onTap: () {
-                    item["id"] == '001' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Dashboard()
-                      ),
-                    )
-                        :
-                    item["id"] == '002' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Portfolio()
-                      ),
-                    )
-                        :
-                    item["id"] == '003' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Funds()
-                      ),
-                    )
-                        :
-                    item["id"] == '004' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Report()
-                      ),
-                    )
-                        :
-                    item["id"] == '005' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Research()
-                      ),
-                    )
-                        :
-                    item["id"] == '007' ?
-                    Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => Profile()
-                      ),
-                    )
-                        : item['id'] == "111"
-                        ? callThemeChange()
-                        : null;
+                    item["id"] == '001'
+                        ? Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => Dashboard()),
+                          )
+                        : item["id"] == '002'
+                            ? Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        Portfolio()),
+                              )
+                            : item["id"] == '003'
+                                ? Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            Funds()),
+                                  )
+                                : item["id"] == '004'
+                                    ? Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                Report()),
+                                      )
+                                    : item["id"] == '005'
+                                        ? Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        Research()),
+                                          )
+                                        : item["id"] == '007'
+                                            ? Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        Profile()),
+                                              )
+                                            : item["id"] == '009'
+                                                ? Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (BuildContext
+                                                                context) =>
+                                                            NoInternet()),
+                                                  )
+                                                : item["id"] == '010'
+                                                    ? Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (BuildContext
+                                                                    context) =>
+                                                                ApiError()),
+                                                      )
+                                                    : null;
                   },
                 );
               },
@@ -334,49 +322,33 @@ class _MenuDrawerState extends State<MenuDrawer> {
           Container(
             decoration: BoxDecoration(
                 border: Border(
-                    top: BorderSide(width: 1, color: Theme
-                        .of(context)
-                        .dividerColor)
-                )
-            ),
+                    top: BorderSide(
+                        width: 1, color: Theme.of(context).dividerColor))),
             child: ListTile(
-              title: Text('Logout',
+              title: Text(
+                'Logout',
                 style: GoogleFonts.roboto(
-                  textStyle: Theme
-                      .of(context)
-                      .textTheme
-                      .subtitle1,
+                  textStyle: Theme.of(context).textTheme.subtitle1,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,
                 ),
               ),
-              trailing: Icon(Icons.logout_outlined,
-                color: Theme
-                    .of(context)
-                    .colorScheme
-                    .onSecondary,
+              trailing: Icon(
+                Icons.logout_outlined,
+                color: Theme.of(context).colorScheme.onSecondary,
               ),
               onTap: () {
-                Navigator.pushReplacement<void, void>(context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Login()
-                    )
-                );
+                confirmationAlertDialog(context);
+                // Navigator.pushReplacement<void, void>(context,
+                //   MaterialPageRoute(
+                //     builder: (BuildContext context) => Login()
+                //   )
+                // );
               },
             ),
           ),
-
-
         ],
       ),
-    );
-  }
-
-  void callThemeChange() {
-    MyApp.isLightTheme = !MyApp.isLightTheme;
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (BuildContext context) => MyApp()),
     );
   }
 }

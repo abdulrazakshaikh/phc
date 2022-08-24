@@ -10,6 +10,24 @@ class AddFunds extends StatefulWidget {
 
 class _AddFundsState extends State<AddFunds> {
 
+  var _dropdownitems = [
+    "Trading",
+    "DP",
+  ];
+  var selectedValue = 'DP';
+
+
+  var _dropdowndpitems = [
+    "10618042",
+    "10618043",
+    "10618044",
+    "10618045",
+    "10618046",
+    "10618047",
+  ];
+
+  var selectedValuedp = 'DP';
+  
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +86,123 @@ class _AddFundsState extends State<AddFunds> {
       ),
       body: ListView(
         children: [
+
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    
+
+                    Container( 
+                      color: Theme.of(context).colorScheme.surface,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 5),
+                            child: Text('Product',
+                              style: GoogleFonts.roboto(
+                                textStyle: Theme.of(context).textTheme.subtitle2,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1.2,
+                              ),
+                            ),
+                          ),
+                          DropdownButtonFormField(
+                            style: GoogleFonts.roboto(
+                              textStyle: Theme.of(context).textTheme.subtitle2,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1.2,
+                            ),
+                            value: 'DP',
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(10),
+                              floatingLabelBehavior: FloatingLabelBehavior.never,
+                              
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1),
+                              ),
+                            ),
+                            items: _dropdownitems.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(), 
+                            onChanged: (String? newValue){
+                              setState(() {
+                                selectedValue = newValue!;
+                              });
+                            },
+                          ),
+                        ],
+                      )
+                    ),
+                    SizedBox(height: 15),
+                    Container( 
+                      color: Theme.of(context).colorScheme.surface,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 5),
+                            child: Text('DP Account',
+                              style: GoogleFonts.roboto(
+                                textStyle: Theme.of(context).textTheme.subtitle2,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1.2,
+                              ),
+                            ),
+                          ),
+                          DropdownButtonFormField(
+                            style: GoogleFonts.roboto(
+                              textStyle: Theme.of(context).textTheme.subtitle2,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1.2,
+                            ),
+                            value: '10618042',
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(10),
+                              floatingLabelBehavior: FloatingLabelBehavior.never,
+                              
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1),
+                              ),
+                            ),
+                            items: _dropdowndpitems.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(), 
+                            onChanged: (String? newValue){
+                              setState(() {
+                                selectedValuedp = newValue!;
+                              });
+                            },
+                          ),
+                        ],
+                      )
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
+          ),
 
           Padding(
             padding: EdgeInsets.all(10),
@@ -266,7 +401,7 @@ class _AddFundsState extends State<AddFunds> {
                     ),
                     ),
                     leading: Image.asset(
-                      'assets/images/hdfc.png',
+                      'images/hdfc.png',
                       width: 32, height: 32,
                       fit: BoxFit.contain,
                     ),
@@ -366,7 +501,7 @@ class _AddFundsState extends State<AddFunds> {
                     leading: Container(
                       width: 42, height: 42, alignment: Alignment.center,
                       child: Image.asset(
-                        'assets/images/upi.png',
+                        'images/upi.png',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -393,7 +528,7 @@ class _AddFundsState extends State<AddFunds> {
                     leading: Container(
                       width: 42, height: 42, alignment: Alignment.center,
                       child: Image.asset(
-                        'assets/images/netbanking.png',
+                        'images/netbanking.png',
                         fit: BoxFit.contain,
                       ),
                     ),

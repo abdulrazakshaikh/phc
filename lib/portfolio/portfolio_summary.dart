@@ -311,6 +311,46 @@ List portfolioList = [
         ),
         ),
 
+        Padding(
+          padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+          child: InkWell(
+          child: Card(
+            elevation: 5,
+            shadowColor: Theme.of(context).shadowColor.withOpacity(0.5),        
+            color: Theme.of(context).colorScheme.surface,   
+            shape: RoundedRectangleBorder(
+              side: BorderSide(width: 1, color: Theme.of(context).dividerColor),
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Have you seen our Portfolio Management returns for last year?',
+                textAlign: TextAlign.left,
+                style: GoogleFonts.roboto(
+                  textStyle: Theme.of(context).textTheme.subtitle1,
+                  fontWeight: FontWeight.bold,
+                  // color: Theme.of(context).colorScheme.primary,
+                  letterSpacing: 1.5,
+                  fontSize: 15
+                ),
+                ),
+                SizedBox(height: 10),
+                Text("Lorem Ipsum is simply dummy text of the printing typesetting and industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,", maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: GoogleFonts.roboto(
+                  textStyle: Theme.of(context).textTheme.caption,
+                  letterSpacing: 1.5
+                ),
+                ),
+              ],
+            ),
+            ),
+          ),
+        ),
+        ),
         
       ],
     ); 

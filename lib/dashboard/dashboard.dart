@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:phc/constants.dart';
 import 'package:phc/dashboard/dash_explore.dart';
 import 'package:phc/widgets/bottomnavigation.dart';
+import 'package:phc/widgets/client_bottomsheet.dart';
 import 'package:phc/widgets/menudrawer.dart';
 
 import 'dash_accordioncard.dart';
@@ -28,7 +29,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
     return Scaffold(      
       backgroundColor: isLightTheme ? PhcGradientLightColor2 :  PhcGradientDarkColor2,
       bottomNavigationBar: BottomNavigation(),
-      drawer: MenuDrawer(),
+      // drawer: MenuDrawer(),
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
@@ -49,12 +50,59 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
             iconTheme: IconThemeData(color: Colors.white),
             expandedHeight: 170,
             titleSpacing: 10,
-            title: Text('Dashboard',
-            style: GoogleFonts.roboto(
-              textStyle: Theme.of(context).appBarTheme.titleTextStyle,
-              color: Colors.white
+            title: Container(
+              child: Row(
+                children: [
+                  Container(
+                    child: Text('Dashboard',
+                    style: GoogleFonts.roboto(
+                      textStyle: Theme.of(context).appBarTheme.titleTextStyle,
+                      color: Colors.white
+                    ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    width: 130,
+                    child: InkWell(
+                      onTap: (){
+                        showModalBottomSheet(
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                          ),
+                          context: context, builder: (BuildContext context) { 
+                            return ClientBottomSheet();
+                          }, 
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text('Vaishali Pawar',
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.roboto(
+                              textStyle: Theme.of(context).textTheme.caption,
+                              letterSpacing: 1.2,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white
+                            ),
+                          ),
+                          ),
+                          Icon(Icons.expand_more_outlined), 
+                        ],
+                      ),
+                    )
+                  ),
+                ],
+              ),
             ),
-            ),
+            
+            
+            
             toolbarHeight: 65,
             actions: <Widget>[
               Container(
@@ -62,7 +110,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin{
                 margin: EdgeInsets.symmetric(horizontal: 3, vertical: 10),
                 child: IconButton(
                   icon: SvgPicture.asset(
-                    'assets/images/addfund.svg',
+                    'images/addfund.svg',
                     height: 24,
                     width: 24,
                     color: Colors.white,

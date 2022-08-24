@@ -7,6 +7,7 @@ import 'package:phc/portfolio/portfolio_futureoptions.dart';
 import 'package:phc/portfolio/portfolio_mutualfunds.dart';
 import 'package:phc/portfolio/portfolio_summary.dart';
 import 'package:phc/widgets/bottomnavigation.dart';
+import 'package:phc/widgets/client_bottomsheet.dart';
 import 'package:phc/widgets/menudrawer.dart';
 
 
@@ -33,11 +34,71 @@ class _PortfolioState extends State<Portfolio> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigation(),
-      drawer: MenuDrawer(),
+      // drawer: MenuDrawer(),
       appBar: AppBar(
+        // leadingWidth: 150,
+        // leading: Directionality(
+        //   textDirection: TextDirection.rtl,
+        //   child: TextButton.icon(
+        //   onPressed: (){}, 
+        //   icon: Icon(Icons.expand_more_outlined), 
+        //   label: Text('Vaishali Pawar',
+        //   overflow: TextOverflow.ellipsis,
+        //   style: GoogleFonts.roboto(
+        //     textStyle: Theme.of(context).textTheme.caption,
+        //     letterSpacing: 1.2,
+        //     fontWeight: FontWeight.bold
+        //   ),
+        //   )
+        //   ),
+        // ),
+        
         elevation: 3,
         titleSpacing: 10,
-        title: Text('Portfolio'),
+        title: Container(
+          child: Row(
+            children: [
+              Container(
+                child: Text('Portfolio'),
+              ),
+              SizedBox(width: 10),
+              Container(
+                width: 130,
+                child: InkWell(
+                  onTap: (){
+                    showModalBottomSheet(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                      ),
+                      context: context, builder: (BuildContext context) { 
+                        return ClientBottomSheet();
+                      }, 
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text('Vaishali Pawar',
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.roboto(
+                          textStyle: Theme.of(context).textTheme.caption,
+                          letterSpacing: 1.2,
+                          fontWeight: FontWeight.w400
+                        ),
+                      ),
+                      ),
+                      Icon(Icons.expand_more_outlined), 
+                    ],
+                  ),
+                )
+              ),
+            ],
+          ),
+        ),
         actions: <Widget>[
           Container(
             width: 42, height: 42,
@@ -46,7 +107,7 @@ class _PortfolioState extends State<Portfolio> with TickerProviderStateMixin{
             child: IconButton(
               alignment: Alignment.center,
               icon: SvgPicture.asset(
-                'assets/images/addfund.svg',
+                'images/addfund.svg',
                 height: 22,
                 width: 22,
                 color: Theme.of(context).appBarTheme.iconTheme!.color,
